@@ -199,8 +199,9 @@ public class MainMenuController extends Application {
         FileInputStream inputStream = null;
 
         try {
-            inputStream = new FileInputStream("resources/ratzLabel.png");
-        } catch (FileNotFoundException ignored) {
+            inputStream = new FileInputStream("source/resources/ratzLabel.png");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
 
         assert inputStream != null;
@@ -219,8 +220,9 @@ public class MainMenuController extends Application {
 
         FileInputStream inputStream = null;
         try {
-            inputStream = new FileInputStream("resources/adultmaleSOUTH.png");
-        } catch (FileNotFoundException ignored) {
+            inputStream = new FileInputStream("source/resources/adultmaleSOUTH.png");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
 
         assert inputStream != null;
@@ -242,8 +244,9 @@ public class MainMenuController extends Application {
         FileInputStream inputStream = null;
         try {
             inputStream = new FileInputStream(
-                    "resources/adultfemaleNORTH.png");
-        } catch (FileNotFoundException ignored) {
+                    "source/resources/adultfemaleNORTH.png");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
         assert inputStream != null;
         Image image = new Image(inputStream);
@@ -430,7 +433,8 @@ public class MainMenuController extends Application {
                 ProfileFileReader.logout();
                 loggedProfile.setText("NOBODY. " +
                         "Please log in before starting the game");
-            } catch (IOException ignored) {
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         });
         right.getChildren().addAll(goBack, removeProfile);
@@ -486,8 +490,9 @@ public class MainMenuController extends Application {
     private HBox getSelectMenuPicsLogin() {
         FileInputStream inputStream = null;
         try {
-            inputStream = new FileInputStream("resources/poison.png");
-        } catch (FileNotFoundException ignored) {
+            inputStream = new FileInputStream("source/resources/poison.png");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
         assert inputStream != null;
         Image image = new Image(inputStream);
@@ -713,9 +718,10 @@ public class MainMenuController extends Application {
         FileInputStream inputs1 = null;
         FileInputStream inputs2 = null;
         try {
-            inputs1 = new FileInputStream("resources/childratEAST.png");
-            inputs2 = new FileInputStream("resources/deathratEAST.png");
-        } catch (FileNotFoundException ignored) {
+            inputs1 = new FileInputStream("source/resources/childratEAST.png");
+            inputs2 = new FileInputStream("source/resources/deathratEAST.png");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
 
         // Turns the rat filepath to images
@@ -758,11 +764,12 @@ public class MainMenuController extends Application {
         // Get the bomb images
         FileInputStream[] inputStreams = new FileInputStream[2];
         try {
-            inputStreams[0] = new FileInputStream("resources/bomb1.png");
+            inputStreams[0] = new FileInputStream("source/resources/bomb1.png");
             inputStreamsPreview = new FileInputStream(
-                    "resources/preview1.png");
-            inputStreams[1] = new FileInputStream("resources/bomb4.png");
-        } catch (FileNotFoundException ignored) {
+                    "source/resources/preview1.png");
+            inputStreams[1] = new FileInputStream("source/resources/bomb4.png");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
         // Turn the bombs from file paths
         assert inputStreams[0] != null;
@@ -837,7 +844,7 @@ public class MainMenuController extends Application {
             int levelIndex = i + 1;
 
             File levelDataInProgress = new File(
-                    "./resources/level" + levelIndex
+                    "./source/resources/level" + levelIndex
                             + "inProgress-" + ProfileFileReader.getLoggedProfile() + ".txt");
 
             if (levelDataInProgress.exists()) {
@@ -856,7 +863,7 @@ public class MainMenuController extends Application {
                     selectedLevel.set(levelIndex);
 
                     try {
-                        inputStreamsPreview = new FileInputStream("resources/" +
+                        inputStreamsPreview = new FileInputStream("source/resources/" +
                                 "preview" + (imageIndex + 1) + ".png");
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
@@ -868,7 +875,8 @@ public class MainMenuController extends Application {
                     String[] newScores = null;
                     try {
                         newScores = HighScores.getTopScores(levelIndex);
-                    } catch (FileNotFoundException ignored) {
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
                     }
 
                     for (int j = 0; j < HighScores.getNumberOfScores(); j++) {
@@ -910,7 +918,8 @@ public class MainMenuController extends Application {
         String[] scoresString = null;
         try {
             scoresString = HighScores.getTopScores(selectedLevel.get());
-        } catch (FileNotFoundException ignored) {
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
 
         for (int i = 0; i < HighScores.getNumberOfScores(); i++) {
@@ -951,7 +960,7 @@ public class MainMenuController extends Application {
      */
     private void loadLevel(Stage levelStage, int levelNumber)
             throws IOException {
-        LevelFileReader.loadLevelFile("./resources/level-" + levelNumber);
+        LevelFileReader.loadLevelFile("./source/resources/level-" + levelNumber);
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource(
                 "level.fxml"));

@@ -36,11 +36,11 @@ public class LevelController {
     private static int[] counters = new int[ITEM_NUM];
 
     //For sounds
-    private static final String DEATH_RAT_SOUND_1_PATH = "resources" +
+    private static final String DEATH_RAT_SOUND_1_PATH = "source/resources" +
             "/deathRatSound1.mp3";
-    private static final String DEATH_RAT_SOUND_2_PATH = "resources" +
+    private static final String DEATH_RAT_SOUND_2_PATH = "source/resources" +
             "/deathRatSound2.mp3";
-    private static final String DEATH_RAT_SOUND_3_PATH = "resources" +
+    private static final String DEATH_RAT_SOUND_3_PATH = "source/resources" +
             "/deathRatSound3.mp3";
     private static final double SOUND_VOLUME_RAT = 0.1f;
 
@@ -363,7 +363,8 @@ public class LevelController {
                 if (index >= 0 && index < ITEM_NUM) {
                     itemDropped(event, index);
                 }
-            } catch (Exception ignored) {
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         });
     }
@@ -457,7 +458,7 @@ public class LevelController {
         tickTimeline.stop();
 
         try {
-            LevelFileReader.saveLevel("./resources/level-" + LEVEL_NUMBER);
+            LevelFileReader.saveLevel("./source/resources/level-" + LEVEL_NUMBER);
         } catch (IOException e) {
             System.out.println("Couldn't save level state.");
         }
