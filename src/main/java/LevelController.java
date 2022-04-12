@@ -644,7 +644,7 @@ public class LevelController {
 	 *
 	 * @param rat rat that has been killed.
 	 */
-	public static void ratKilled(Rat rat) {
+	public synchronized static void ratKilled(Rat rat) {
 		if (rat instanceof AdultFemale) {
 			if (((AdultFemale) rat).getRatFetusCount() > 0) {
 				for (int i = 0; i < ((AdultFemale) rat).getRatFetusCount(); i++) {

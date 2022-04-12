@@ -20,6 +20,7 @@
    <Button mnemonicParsing="false" onAction="#changeToProfileSelection" prefHeight="39.0" prefWidth="180.0" text="Log in" />
    <Button mnemonicParsing="false" onAction="#changeToLevelSelection" prefHeight="39.0" prefWidth="180.0" text="Select Level" />
    <Button mnemonicParsing="false" onAction="#changeToLevelCreation" prefHeight="39.0" prefWidth="180.0" text="Create Level" />
+   <Button mnemonicParsing="false" onAction="#changeToLevelCreation" prefHeight="39.0" prefWidth="180.0" text="Settings" />
    <Button mnemonicParsing="false" onAction="#exitTheGame" prefHeight="39.0" prefWidth="180.0" text="Exit" />
    <Label id="labelMOTD" fx:id="messageOfTheDay" prefHeight="78.0" prefWidth="61.0" />
    <AnchorPane prefHeight="100.0" prefWidth="200.0">
