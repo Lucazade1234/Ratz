@@ -9,9 +9,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@menu.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MenuController">
    <children>
-      <RadioButton layoutX="230.0" layoutY="90.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="49.0" text="Easy" />
-      <RadioButton layoutX="341.0" layoutY="90.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="68.0" text="Medium" />
-      <RadioButton layoutX="460.0" layoutY="90.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="49.0" text="Hard" />
+      <RadioButton layoutX="230.0" layoutY="90.0" mnemonicParsing="false" onAction="#setToEasy" prefHeight="17.0" prefWidth="49.0" text="Easy" />
+      <RadioButton layoutX="341.0" layoutY="90.0" mnemonicParsing="false" onAction="#setToMedium" prefHeight="17.0" prefWidth="68.0" text="Medium" />
+      <RadioButton layoutX="460.0" layoutY="90.0" mnemonicParsing="false" onAction="#setToHard" prefHeight="17.0" prefWidth="49.0" text="Hard" />
       <Label layoutX="58.0" layoutY="85.0" text="Difficulty">
          <font>
             <Font size="18.0" />

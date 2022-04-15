@@ -64,6 +64,7 @@ public class MenuController {
 	private static final String LEVELS_IMAGES = "levels_images\\";
 	private static final String RESOURCES_PATH = "src\\main\\resources\\";
 	private static final String SELECT_LEVEL_LABEL = "Select level";
+	private DifficultyClass difficulty;
 
 	@FXML
 	private Label messageOfTheDay;
@@ -778,5 +779,45 @@ public class MenuController {
 		}
 		System.out.println("stage closing");
 		Menu.getStage().close();
+	}
+
+	/**
+	 * sets the difficulty
+	 * @param difficulty difficulty of the game
+	 */
+	public void setDifficulty(DifficultyClass difficulty){
+		this.difficulty = difficulty;
+	}
+
+	/**
+	 * returns the current difficulty of the game
+	 * @return the difficulty of the game
+	 */
+	public DifficultyClass getDifficulty(){
+		return this.difficulty;
+	}
+
+	/**
+	 * sets the difficulty to easy
+	 */
+	public void setToEasy(){
+		this.setDifficulty(new EasyDifficulty());
+		System.out.println("changed to easy");
+	}
+
+	/**
+	 * sets the difficulty to medium
+	 */
+	public void setToMedium(){
+		this.setDifficulty(new MediumDifficulty());
+		System.out.println("changed to medium");
+	}
+
+	/**
+	 * sets the difficulty to hard
+	 */
+	public void setToHard(){
+		this.setDifficulty(new HardDifficulty());
+		System.out.println("changed to hard");
 	}
 }

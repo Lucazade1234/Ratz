@@ -137,6 +137,7 @@ public class LevelController {
 
 		buildNewLevel();
 
+
 		MAX_RATS = LevelFileReader.getMaxRats();
 		if (LevelFileReader.getInProgTimer() != -1) {
 			PAR_TIME = LevelFileReader.getInProgTimer();
@@ -144,6 +145,7 @@ public class LevelController {
 			PAR_TIME = LevelFileReader.getParTime();
 		}
 		DROP_RATES = LevelFileReader.getDropRates();
+
 	}
 
 	/**
