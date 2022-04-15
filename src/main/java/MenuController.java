@@ -226,6 +226,24 @@ public class MenuController {
 		stage.show();
 	}
 
+
+	/**
+	 * Loads settings menu
+	 * @param event button event
+	 * @throws IOException if fxml file is missing
+	 */
+	public void changeToSettings(ActionEvent event) throws IOException{
+		levelsCreationViewUpdated = false;
+		System.out.println("moved to settings");
+
+		root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("settings.fxml")));
+		stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+	}
+
 	/**
 	 * Changes scene to level selection.
 	 * 
