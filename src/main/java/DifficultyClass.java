@@ -7,9 +7,11 @@ public class DifficultyClass {
     private int poisonCap;
     private int maleSwapperCap;
     private int femaleSwapperCap;
+    private int dropRate;
+    private int time;
 
 
-    DifficultyClass(int ratSpeed ,int populationCap, int bombCap, int gasCap, int poisonCap, int maleSwapperCap, int femaleSwapperCap){
+    DifficultyClass(int ratSpeed , int populationCap, int bombCap, int gasCap, int poisonCap, int maleSwapperCap, int femaleSwapperCap){
         this.ratSpeed = ratSpeed;
         this.populationCap = populationCap;
         this.bombCap = bombCap;
@@ -77,5 +79,21 @@ public class DifficultyClass {
 
     public void setFemaleSwapperCap(int femaleSwapperCap) {
         this.femaleSwapperCap = femaleSwapperCap;
+    }
+
+    public int getDropRate() {
+        return dropRate;
+    }
+
+    public void setDropRate(int dropRate) {
+        this.dropRate = dropRate;
+    }
+
+    public int getTime() {
+        return time;
+    }
+
+    public void setTime(int time) {
+        this.time = time;
     }
 }

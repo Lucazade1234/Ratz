@@ -75,8 +75,8 @@ public class LevelController {
 	private final int HEIGHT;
 
 	// Game losing conditions (maximum number of rats, time taken for a level)
-	private final int MAX_RATS;
-	private final int PAR_TIME;
+	private int MAX_RATS;
+	private int PAR_TIME;
 
 	private final int[] DROP_RATES;
 	private final int[] timeUntilDrop = new int[ITEM_NUM];
@@ -145,6 +145,20 @@ public class LevelController {
 			PAR_TIME = LevelFileReader.getParTime();
 		}
 		DROP_RATES = LevelFileReader.getDropRates();
+
+		DifficultyClass difficulty = MAIN_MENU.getDifficulty();
+		if(MAIN_MENU.getDifficulty() instanceof EasyDifficulty){
+			MAX_RATS = difficulty.getPopulationCap();
+			PAR_TIME = difficulty.getTime();
+
+		} else if(MAIN_MENU.getDifficulty() instanceof MediumDifficulty){
+			MAX_RATS = difficulty.getPopulationCap();
+			PAR_TIME = difficulty.getTime();
+
+		} else if(MAIN_MENU.getDifficulty() instanceof HardDifficulty){
+			MAX_RATS = difficulty.getPopulationCap();
+			PAR_TIME = difficulty.getTime();
+		}
 
 	}
 
