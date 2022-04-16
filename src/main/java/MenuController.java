@@ -64,7 +64,9 @@ public class MenuController {
 	private static final String LEVELS_IMAGES = "levels_images\\";
 	private static final String RESOURCES_PATH = "src\\main\\resources\\";
 	private static final String SELECT_LEVEL_LABEL = "Select level";
-	private DifficultyClass difficulty;
+
+	private LevelController levelController;
+	private DifficultyClass difficulty = new MediumDifficulty();
 
 	@FXML
 	private Label messageOfTheDay;
@@ -803,6 +805,7 @@ public class MenuController {
 	public void setToEasy(){
 		this.setDifficulty(new EasyDifficulty());
 		System.out.println("changed to easy");
+
 	}
 
 	/**
@@ -819,5 +822,13 @@ public class MenuController {
 	public void setToHard(){
 		this.setDifficulty(new HardDifficulty());
 		System.out.println("changed to hard");
+	}
+
+	public void setLevelController(LevelController levelController){
+		this.levelController = levelController;
+	}
+
+	public LevelController getLevelController() {
+		return levelController;
 	}
 }

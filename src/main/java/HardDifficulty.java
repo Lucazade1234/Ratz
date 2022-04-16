@@ -9,6 +9,7 @@ public class HardDifficulty extends DifficultyClass {
         this.setPoisonCap(2);
         this.setMaleSwapperCap(1);
         this.setFemaleSwapperCap(1);
+        this.setTime(90);
 
     }
 

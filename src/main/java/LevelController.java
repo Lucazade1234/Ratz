@@ -135,29 +135,34 @@ public class LevelController {
 		WIDTH = LevelFileReader.getWidth();
 		HEIGHT = LevelFileReader.getHeight();
 
+		DifficultyClass difficulty = MAIN_MENU.getDifficulty();
+
 		buildNewLevel();
 
 
-		MAX_RATS = LevelFileReader.getMaxRats();
+	/*	MAX_RATS = LevelFileReader.getMaxRats();
+	* */
 		if (LevelFileReader.getInProgTimer() != -1) {
 			PAR_TIME = LevelFileReader.getInProgTimer();
 		} else {
 			PAR_TIME = LevelFileReader.getParTime();
 		}
+
+
 		DROP_RATES = LevelFileReader.getDropRates();
 
-		DifficultyClass difficulty = MAIN_MENU.getDifficulty();
+
 		if(MAIN_MENU.getDifficulty() instanceof EasyDifficulty){
 			MAX_RATS = difficulty.getPopulationCap();
-			PAR_TIME = difficulty.getTime();
+			//PAR_TIME = difficulty.getTime();
 
 		} else if(MAIN_MENU.getDifficulty() instanceof MediumDifficulty){
 			MAX_RATS = difficulty.getPopulationCap();
-			PAR_TIME = difficulty.getTime();
+			//PAR_TIME = difficulty.getTime();
 
 		} else if(MAIN_MENU.getDifficulty() instanceof HardDifficulty){
 			MAX_RATS = difficulty.getPopulationCap();
-			PAR_TIME = difficulty.getTime();
+			//PAR_TIME = difficulty.getTime();
 		}
 
 	}
