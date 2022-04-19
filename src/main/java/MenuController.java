@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,11 +13,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -66,7 +64,20 @@ public class MenuController {
 	private static final String SELECT_LEVEL_LABEL = "Select level";
 
 	private LevelController levelController;
-	private DifficultyClass difficulty = new MediumDifficulty();
+	public Settings settings;
+
+	private final EasyDifficulty easy = new EasyDifficulty();
+	private final MediumDifficulty medium = new MediumDifficulty();
+	private final HardDifficulty hard = new HardDifficulty();
+
+	private DifficultyClass difficulty;
+
+	private static int status;
+
+
+	private static boolean easySelected = true;
+	private static boolean mediumSelected = false;
+	private static boolean hardSelected = false;
 
 	@FXML
 	private Label messageOfTheDay;
@@ -126,6 +137,15 @@ public class MenuController {
 	private Button removeProfileButton;
 	@FXML
 	private Button openLevelEditorButton;
+	@FXML
+	private RadioButton easyButton = new RadioButton();
+	@FXML
+	private RadioButton mediumButton = new RadioButton();
+	@FXML
+	private RadioButton hardButton = new RadioButton();
+	@FXML
+	private ToggleGroup difficulties;
+
 
 
 	/**
@@ -187,12 +207,37 @@ public class MenuController {
 	 */
 	public void changeToMenu(ActionEvent event) throws IOException {
 		System.out.println("move to menu");
+
+		System.out.println("easyButton: " + easySelected);
+		System.out.println("mediumButton: " + mediumSelected);
+		System.out.println("hardButton: " + hardSelected);
+
+		if (easySelected){
+			easyButton.setSelected(true);
+			mediumButton.setSelected(false);
+			hardButton.setSelected(false);
+		} else if (mediumSelected){
+			easyButton.setSelected(false);
+			mediumButton.setSelected(true);
+			hardButton.setSelected(false);
+		} else if (hardSelected){
+			easyButton.setSelected(false);
+			mediumButton.setSelected(false);
+			hardButton.setSelected(true);
+		}
+
 		menuViewUpdated = false;
 		root = FXMLLoader.load(getClass().getResource("menu2.fxml"));
 		stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();
+
+
+
+
+
+		//System.out.println("status: " + status);
 	}
 
 	/**
@@ -238,13 +283,26 @@ public class MenuController {
 	public void changeToSettings(ActionEvent event) throws IOException{
 		levelsCreationViewUpdated = false;
 		System.out.println("moved to settings");
+		System.out.println("status: " + status);
 
+		System.out.println("easyButton: " + easySelected);
+		System.out.println("mediumButton: " + mediumSelected);
+		System.out.println("hardButton: " + hardSelected);
+
+		if(status == 0){
+			easyButton.setSelected(true);
+		} else if (status == 1){
+			mediumButton.setSelected(true);
+		} else if (status == 3){
+			hardButton.setSelected(true);
+		}
 		root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("settings.fxml")));
 		stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
 		scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();
+
+
 	}
 
 	/**
@@ -254,6 +312,7 @@ public class MenuController {
 	 * @throws IOException if fxml file is missing
 	 */
 	public void changeToLevelSelection(ActionEvent event) throws IOException {
+		System.out.println(status);
 		if (ProfileFileReader.getLoggedProfile() != null) {
 			levelsViewUpdated = false;
 			System.out.println("moved to level selection");
@@ -604,14 +663,61 @@ public class MenuController {
 			LevelFileReader.loadSavedLevelFile("src/main/resources/levels/" + levelType + selectedLevelName);
 		}
 
+		/*if(easyButton.isSelected()){
+			this.setDifficulty(easy);
+		} else if(mediumButton.isSelected()){
+			this.setDifficulty(medium);
+		} else if(hardButton.isSelected()){
+			this.setDifficulty(hard);
+		}
+
+		 */
+
+
+/*		if(this.getDifficulty() instanceof MediumDifficulty){
+			System.out.println("the difficulty is easy");
+		} else if(this.getDifficulty() instanceof MediumDifficulty){
+			System.out.println("the difficulty is medium");
+		} else if(this.getDifficulty() instanceof HardDifficulty){
+			System.out.println("the difficulty is hard");
+		}
+
+ */
+		System.out.println(status);
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("level.fxml"));
-		LevelController levelController = new LevelController(selectedLevelName, this);
+
+		LevelController levelController = null;
+
+		if(status == 0){
+			levelController = new LevelController(selectedLevelName, this, easy);
+		} else if(status == 1){
+			levelController = new LevelController(selectedLevelName, this, medium);
+		} else if(status == 2){
+			levelController = new LevelController(selectedLevelName, this, hard);
+		} else{
+			System.out.println("error");
+		}
 
 		loader.setController(levelController);
 		Pane root = loader.load();
 
 		scene = new Scene(root, root.getPrefWidth(), root.getPrefHeight());
 		stage.setScene(scene);
+
+
+
+		/*FXMLLoader loader = new FXMLLoader(getClass().getResource("level.fxml"));
+		LevelController levelController = new LevelController(selectedLevelName, this, medium);
+
+		loader.setController(levelController);
+		Pane root = loader.load();
+
+		scene = new Scene(root, root.getPrefWidth(), root.getPrefHeight());
+		stage.setScene(scene);
+
+		 */
+
+
 	}
 
 	/**
@@ -802,33 +908,98 @@ public class MenuController {
 	/**
 	 * sets the difficulty to easy
 	 */
-	public void setToEasy(){
-		this.setDifficulty(new EasyDifficulty());
+	public void setToEasy(ActionEvent actionEvent){
+		//easySelected = true;
+		//mediumSelected = false;
+		//hardSelected = false;
+
+		//System.out.println("easy button selected: " + easyButton.isSelected());
+
+
+		//System.out.println(this.getDifficulty().getPopulationCap());
+
+		//settings.setToEasy();
 		System.out.println("changed to easy");
 
+
 	}
+
 
 	/**
 	 * sets the difficulty to medium
 	 */
-	public void setToMedium(){
-		this.setDifficulty(new MediumDifficulty());
+	public void setToMedium(ActionEvent actionEvent){
+		//easySelected = false;
+		//mediumSelected = true;
+		//hardSelected = false;
+
+
+
+		//System.out.println("medium button selected: " + mediumButton.isSelected());
+		//System.out.println(this.getDifficulty().getPopulationCap());
+
+		//this.settings.setToMedium();
 		System.out.println("changed to medium");
 	}
 
 	/**
 	 * sets the difficulty to hard
 	 */
-	public void setToHard(){
-		this.setDifficulty(new HardDifficulty());
+	public void setToHard(ActionEvent actionEvent){
+		//easySelected = false;
+		//mediumSelected = false;
+		//hardSelected = true;
+
+		//System.out.println("hard button selected: " + hardButton.isSelected());
+
+		//System.out.println(this.getDifficulty().getPopulationCap());
+
+		//settings.setToHard();
 		System.out.println("changed to hard");
+
+		//status = 2;
+		//System.out.println("changed to hard");
 	}
 
+	public void saveSettings(ActionEvent event){
+
+		if (easyButton.isSelected()) {
+			status = 0;
+			easySelected = true;
+			mediumSelected = false;
+			hardSelected = false;
+			System.out.println("Difficulty saved to easy");
+		} else if (mediumButton.isSelected()) {
+			status = 1;
+			easySelected = false;
+			mediumSelected = true;
+			hardSelected = false;
+			System.out.println("Difficulty saved to medium");
+		} else if (hardButton.isSelected()){
+			status = 2;
+			easySelected = false;
+			mediumSelected = false;
+			hardSelected = true;
+			System.out.println("Difficulty saved to hard");
+		}
+
+	}
+
+	/**
+	 * sets the level controller
+	 * @param levelController level controller
+	 */
 	public void setLevelController(LevelController levelController){
 		this.levelController = levelController;
 	}
 
+	/**
+	 * returns the level controller
+	 * @return level controller
+	 */
 	public LevelController getLevelController() {
 		return levelController;
 	}
+
+
 }

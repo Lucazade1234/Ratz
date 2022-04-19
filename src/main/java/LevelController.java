@@ -122,6 +122,7 @@ public class LevelController {
 	public TextField levelNameTextField;
 	public Text savingErrorText;
 	public Button saveAndExitButton;
+	DifficultyClass difficulty;
 
 	/**
 	 * Constructor for LevelController class.
@@ -129,13 +130,39 @@ public class LevelController {
 	 * @param selectedLevelName  Number of level being played.
 	 * @param mainMenuController Reference to the main menu controller.
 	 */
-	public LevelController(String selectedLevelName, MenuController mainMenuController) {
+	public LevelController(String selectedLevelName, MenuController mainMenuController, DifficultyClass difficulty) {
 		LEVEL_NAME = selectedLevelName;
 		MAIN_MENU = mainMenuController;
 		WIDTH = LevelFileReader.getWidth();
 		HEIGHT = LevelFileReader.getHeight();
 
-		DifficultyClass difficulty = MAIN_MENU.getDifficulty();
+		MAIN_MENU.setLevelController(this);
+
+		this.difficulty = difficulty;
+
+		System.out.println("new level controller made");
+
+		if(this.difficulty instanceof EasyDifficulty){
+			System.out.println("the difficulty is Easy");
+		} else if(this.difficulty instanceof MediumDifficulty){
+			System.out.println("the difficulty is Medium");
+		} else if(this.difficulty instanceof HardDifficulty){
+			System.out.println("the difficulty is Hard");
+		}
+
+
+		if(this.difficulty instanceof EasyDifficulty){
+			MAX_RATS = difficulty.getPopulationCap();
+			//PAR_TIME = difficulty.getTime();
+
+		} else if(this.difficulty instanceof MediumDifficulty){
+			MAX_RATS = difficulty.getPopulationCap();
+			//PAR_TIME = difficulty.getTime();
+
+		} else if(this.difficulty instanceof HardDifficulty){
+			MAX_RATS = difficulty.getPopulationCap();
+			//PAR_TIME = difficulty.getTime();
+		}
 
 		buildNewLevel();
 
@@ -151,19 +178,8 @@ public class LevelController {
 
 		DROP_RATES = LevelFileReader.getDropRates();
 
+		System.out.println("The rat cap is: " + MAX_RATS);
 
-		if(MAIN_MENU.getDifficulty() instanceof EasyDifficulty){
-			MAX_RATS = difficulty.getPopulationCap();
-			//PAR_TIME = difficulty.getTime();
-
-		} else if(MAIN_MENU.getDifficulty() instanceof MediumDifficulty){
-			MAX_RATS = difficulty.getPopulationCap();
-			//PAR_TIME = difficulty.getTime();
-
-		} else if(MAIN_MENU.getDifficulty() instanceof HardDifficulty){
-			MAX_RATS = difficulty.getPopulationCap();
-			//PAR_TIME = difficulty.getTime();
-		}
 
 	}
 
@@ -690,4 +706,6 @@ public class LevelController {
 			otherRatCounter--;
 		}
 	}
+
+
 }

@@ -1,4 +1,4 @@
-public class DifficultyClass {
+public abstract class DifficultyClass {
 
     private int ratSpeed;
     private int populationCap;
