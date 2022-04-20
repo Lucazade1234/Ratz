@@ -39,7 +39,7 @@ public class LevelController {
 
 	private static final int ITEM_NUM = 8;
 	private static final int TILE_SIZE = 64;
-	private static final int[] counters = new int[ITEM_NUM];
+	private static int[] counters = new int[ITEM_NUM];
 
 	private static final String defaultLevelRegex = "level-[1-5]";
 
@@ -78,14 +78,14 @@ public class LevelController {
 	private int MAX_RATS;
 	private int PAR_TIME;
 
-	private final int[] DROP_RATES;
+	private int[] DROP_RATES = new int[ITEM_NUM];
 	private final int[] timeUntilDrop = new int[ITEM_NUM];
 
 	private final MenuController MAIN_MENU;
 	private final String LEVEL_NAME;
 
 	// Milliseconds between frames
-	private final int FRAME_TIME = 250;
+	private int FRAME_TIME = 250;
 
 	// Item toolbars
 	private List<HBox> toolbars;
@@ -153,30 +153,34 @@ public class LevelController {
 
 		if(this.difficulty instanceof EasyDifficulty){
 			MAX_RATS = difficulty.getPopulationCap();
-			//PAR_TIME = difficulty.getTime();
+			PAR_TIME = difficulty.getTime();
+			FRAME_TIME = difficulty.getFrameTime();
+			DROP_RATES = difficulty.getDropRate();
+			counters = difficulty.getCounters();
 
 		} else if(this.difficulty instanceof MediumDifficulty){
 			MAX_RATS = difficulty.getPopulationCap();
-			//PAR_TIME = difficulty.getTime();
+			PAR_TIME = difficulty.getTime();
+			FRAME_TIME = difficulty.getFrameTime();
+			DROP_RATES = difficulty.getDropRate();
+			counters = difficulty.getCounters();
+
 
 		} else if(this.difficulty instanceof HardDifficulty){
 			MAX_RATS = difficulty.getPopulationCap();
-			//PAR_TIME = difficulty.getTime();
+			PAR_TIME = difficulty.getTime();
+			FRAME_TIME = difficulty.getFrameTime();
+			DROP_RATES = difficulty.getDropRate();
+			counters = difficulty.getCounters();
+
+
 		}
 
 		buildNewLevel();
 
 
-	/*	MAX_RATS = LevelFileReader.getMaxRats();
-	* */
-		if (LevelFileReader.getInProgTimer() != -1) {
-			PAR_TIME = LevelFileReader.getInProgTimer();
-		} else {
-			PAR_TIME = LevelFileReader.getParTime();
-		}
 
-
-		DROP_RATES = LevelFileReader.getDropRates();
+		//DROP_RATES = LevelFileReader.getDropRates();
 
 		System.out.println("The rat cap is: " + MAX_RATS);
 

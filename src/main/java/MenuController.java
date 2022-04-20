@@ -72,7 +72,7 @@ public class MenuController {
 
 	private DifficultyClass difficulty;
 
-	private static int status;
+	private static int status = 0;
 
 
 	private static boolean easySelected = true;
@@ -144,7 +144,7 @@ public class MenuController {
 	@FXML
 	private RadioButton hardButton = new RadioButton();
 	@FXML
-	private ToggleGroup difficulties;
+	private ToggleGroup difficulties = new ToggleGroup();
 
 
 
@@ -168,6 +168,24 @@ public class MenuController {
 		} else if (this.levelCreationRoot != null) {
 			levelsCreationViewUpdated = false;
 			updateLevelCreationView();
+		}
+
+
+		easyButton.setToggleGroup(difficulties);
+		mediumButton.setToggleGroup(difficulties);
+		hardButton.setToggleGroup(difficulties);
+
+		if (status == 0){
+			easyButton.setSelected(true);
+			System.out.println("easy selected");
+
+		} else if (status == 1){
+			mediumButton.setSelected(true);
+			System.out.println("medium selected");
+
+		} else if (status == 2){
+			hardButton.setSelected(true);
+			System.out.println("hard selected");
 		}
 	}
 
@@ -208,11 +226,12 @@ public class MenuController {
 	public void changeToMenu(ActionEvent event) throws IOException {
 		System.out.println("move to menu");
 
+		System.out.println("status: " + status);
 		System.out.println("easyButton: " + easySelected);
 		System.out.println("mediumButton: " + mediumSelected);
 		System.out.println("hardButton: " + hardSelected);
 
-		if (easySelected){
+	/*	if (easySelected){
 			easyButton.setSelected(true);
 			mediumButton.setSelected(false);
 			hardButton.setSelected(false);
@@ -225,6 +244,8 @@ public class MenuController {
 			mediumButton.setSelected(false);
 			hardButton.setSelected(true);
 		}
+
+	 */
 
 		menuViewUpdated = false;
 		root = FXMLLoader.load(getClass().getResource("menu2.fxml"));
@@ -280,6 +301,7 @@ public class MenuController {
 	 * @param event button event
 	 * @throws IOException if fxml file is missing
 	 */
+	@FXML
 	public void changeToSettings(ActionEvent event) throws IOException{
 		levelsCreationViewUpdated = false;
 		System.out.println("moved to settings");
@@ -289,17 +311,14 @@ public class MenuController {
 		System.out.println("mediumButton: " + mediumSelected);
 		System.out.println("hardButton: " + hardSelected);
 
-		if(status == 0){
-			easyButton.setSelected(true);
-		} else if (status == 1){
-			mediumButton.setSelected(true);
-		} else if (status == 3){
-			hardButton.setSelected(true);
-		}
+
+
 		root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("settings.fxml")));
 		stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		stage.setScene(scene);
+
+
 		stage.show();
 
 
@@ -965,21 +984,12 @@ public class MenuController {
 
 		if (easyButton.isSelected()) {
 			status = 0;
-			easySelected = true;
-			mediumSelected = false;
-			hardSelected = false;
 			System.out.println("Difficulty saved to easy");
 		} else if (mediumButton.isSelected()) {
 			status = 1;
-			easySelected = false;
-			mediumSelected = true;
-			hardSelected = false;
 			System.out.println("Difficulty saved to medium");
 		} else if (hardButton.isSelected()){
 			status = 2;
-			easySelected = false;
-			mediumSelected = false;
-			hardSelected = true;
 			System.out.println("Difficulty saved to hard");
 		}
 

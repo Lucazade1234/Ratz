@@ -9,7 +9,12 @@ public class MediumDifficulty extends DifficultyClass {
         this.setPoisonCap(2);
         this.setMaleSwapperCap(2);
         this.setFemaleSwapperCap(2);
-        this.setTime(120);
+        this.setTime(90);
+        this.setFrameTime(150);
+        int[] dropRates = {0,10000,0,0,0,0,0,0};
+        this.setDropRate(dropRates);
+        int[] counters = {2,2,2,2,2,2,2,2};
+        this.setCounters(counters);
 
     }
 

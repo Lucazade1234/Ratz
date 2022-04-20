@@ -9,7 +9,12 @@ public class EasyDifficulty extends DifficultyClass {
         this.setPoisonCap(4);
         this.setMaleSwapperCap(4);
         this.setFemaleSwapperCap(4);
-        this.setTime(150);
+        this.setTime(120);
+        this.setFrameTime(250);
+        int[] dropRates = {0,10000,0,0,0,0,0,0};
+        this.setDropRate(dropRates);
+        int[] counters = {2,2,2,2,2,2,2,2};
+        this.setCounters(counters);
 
     }
 

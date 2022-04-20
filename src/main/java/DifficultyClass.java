@@ -7,8 +7,11 @@ public abstract class DifficultyClass {
     private int poisonCap;
     private int maleSwapperCap;
     private int femaleSwapperCap;
-    private int dropRate;
+    private int[] dropRate;
+    private int[] counters;
     private int time;
+    private int frameTime;
+
 
 
     DifficultyClass(int ratSpeed , int populationCap, int bombCap, int gasCap, int poisonCap, int maleSwapperCap, int femaleSwapperCap){
@@ -81,11 +84,11 @@ public abstract class DifficultyClass {
         this.femaleSwapperCap = femaleSwapperCap;
     }
 
-    public int getDropRate() {
+    public int[] getDropRate() {
         return dropRate;
     }
 
-    public void setDropRate(int dropRate) {
+    public void setDropRate(int[] dropRate) {
         this.dropRate = dropRate;
     }
 
@@ -96,4 +99,21 @@ public abstract class DifficultyClass {
     public void setTime(int time) {
         this.time = time;
     }
+
+    public int getFrameTime() {
+        return frameTime;
+    }
+
+    public void setFrameTime(int frameTime) {
+        this.frameTime = frameTime;
+    }
+
+    public int[] getCounters() {
+        return counters;
+    }
+
+    public void setCounters(int[] counters) {
+        this.counters = counters;
+    }
 }
+
