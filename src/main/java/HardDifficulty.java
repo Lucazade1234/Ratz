@@ -4,15 +4,20 @@ public class HardDifficulty extends DifficultyClass {
         super();
         this.setRatSpeed(10);
         this.setPopulationCap(20);
-        this.setBombCap(1);
-        this.setGasCap(1);
-        this.setPoisonCap(2);
-        this.setMaleSwapperCap(1);
-        this.setFemaleSwapperCap(1);
+        this.setBombCap(3);
+        this.setGasCap(3);
+        this.setPoisonCap(3);
+        this.setMaleSwapperCap(3);
+        this.setFemaleSwapperCap(3);
+        this.setStopSignCap(3);
+        this.setDeathRatCap(3);
         this.setTime(60);
-        this.setFrameTime(70);
-        int[] dropRates = {0,0,0,0,0,0,0,0};
+        this.setFrameTime(90);
+        int[] dropRates = {5000,10000,5000,5000,5000,5000,5000,5000};
         this.setDropRate(dropRates);
+        int[] counters = {this.getBombCap(),this.getGasCap(),this.getPoisonCap(),
+                this.getPoisonCap(),getMaleSwapperCap(),getFemaleSwapperCap(),getStopSignCap(),getDeathRatCap()};
+        this.setCounters(counters);
 
     }
 

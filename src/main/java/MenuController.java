@@ -1011,5 +1011,11 @@ public class MenuController {
 		return levelController;
 	}
 
+	public static int getStatus() {
+		return status;
+	}
 
+	public static void setStatus(int status) {
+		MenuController.status = status;
+	}
 }

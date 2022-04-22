@@ -4,16 +4,19 @@ public class MediumDifficulty extends DifficultyClass {
         super();
         this.setRatSpeed(8);
         this.setPopulationCap(25);
-        this.setBombCap(2);
-        this.setGasCap(2);
-        this.setPoisonCap(2);
-        this.setMaleSwapperCap(2);
-        this.setFemaleSwapperCap(2);
+        this.setBombCap(3);
+        this.setGasCap(1);
+        this.setPoisonCap(3);
+        this.setMaleSwapperCap(3);
+        this.setFemaleSwapperCap(3);
+        this.setStopSignCap(3);
+        this.setDeathRatCap(3);
         this.setTime(90);
         this.setFrameTime(150);
-        int[] dropRates = {0,10000,0,0,0,0,0,0};
+        int[] dropRates = {5000,10000,5000,5000,5000,5000,5000,5000};
         this.setDropRate(dropRates);
-        int[] counters = {2,2,2,2,2,2,2,2};
+        int[] counters = {this.getBombCap(),this.getGasCap(),this.getPoisonCap(),
+                this.getPoisonCap(),getMaleSwapperCap(),getFemaleSwapperCap(),getStopSignCap(),getDeathRatCap()};
         this.setCounters(counters);
 
     }

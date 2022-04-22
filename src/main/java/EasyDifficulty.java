@@ -4,16 +4,19 @@ public class EasyDifficulty extends DifficultyClass {
         super();
         this.setRatSpeed(4);
         this.setPopulationCap(30);
-        this.setBombCap(4);
-        this.setGasCap(4);
-        this.setPoisonCap(4);
-        this.setMaleSwapperCap(4);
-        this.setFemaleSwapperCap(4);
+        this.setBombCap(3);
+        this.setGasCap(2);
+        this.setPoisonCap(3);
+        this.setMaleSwapperCap(3);
+        this.setFemaleSwapperCap(3);
+        this.setStopSignCap(3);
+        this.setDeathRatCap(3);
         this.setTime(120);
         this.setFrameTime(250);
-        int[] dropRates = {0,10000,0,0,0,0,0,0};
+        int[] dropRates = {5000,10000,5000,5000,5000,5000,5000,5000};
         this.setDropRate(dropRates);
-        int[] counters = {2,2,2,2,2,2,2,2};
+        int[] counters = {this.getBombCap(),this.getGasCap(),this.getPoisonCap(),
+                this.getPoisonCap(),getMaleSwapperCap(),getFemaleSwapperCap(),getStopSignCap(),getDeathRatCap()};
         this.setCounters(counters);
 
     }

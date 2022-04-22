@@ -7,6 +7,8 @@ public abstract class DifficultyClass {
     private int poisonCap;
     private int maleSwapperCap;
     private int femaleSwapperCap;
+    private int stopSignCap;
+    private int deathRatCap;
     private int[] dropRate;
     private int[] counters;
     private int time;
@@ -114,6 +116,22 @@ public abstract class DifficultyClass {
 
     public void setCounters(int[] counters) {
         this.counters = counters;
+    }
+
+    public int getStopSignCap() {
+        return stopSignCap;
+    }
+
+    public void setStopSignCap(int stopSignCap) {
+        this.stopSignCap = stopSignCap;
+    }
+
+    public int getDeathRatCap() {
+        return deathRatCap;
+    }
+
+    public void setDeathRatCap(int deathRatCap) {
+        this.deathRatCap = deathRatCap;
     }
 }
 
