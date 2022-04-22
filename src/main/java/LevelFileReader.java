@@ -326,6 +326,12 @@ public class LevelFileReader {
             special = String.valueOf(((StopSign) power).getHP());
             return type + "," + xPos + "," + yPos + "," + special;
         }
+        if (power instanceof Lava ) {
+            type = "L";
+            special = String.valueOf(((Lava) power).getTicksActive());
+            boolean isOriginal = ((Lava) power).isOriginal();
+            return type + "," + xPos + "," + yPos + "," + isOriginal + "," + special;
+        }
 
         // if nothing has been returned yet, someone's added in a new power.
         return null;
@@ -664,6 +670,20 @@ public class LevelFileReader {
                     newGas.setTicksActive(ticksActive);
                     POWER_ARRAY_LIST.add(newGas);
                     tileMap[xPos][yPos].addActivePower(newGas);
+                    break;
+                }
+
+                // if currentItem item is lava
+                case "L": {
+                    int xPos = Integer.parseInt(currentItem[1]);
+                    int yPos = Integer.parseInt(currentItem[2]);
+                    boolean isOriginal;
+                    isOriginal = currentItem[3].equals("1");
+                    int ticksActive = Integer.parseInt(currentItem[4]);
+                    Lava newLava = new Lava(xPos, yPos, isOriginal);
+                    newLava.setTicksActive(ticksActive);
+                    POWER_ARRAY_LIST.add(newLava);
+                    tileMap[xPos][yPos].addActivePower(newLava);
                     break;
                 }
 
