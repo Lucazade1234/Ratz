@@ -56,6 +56,7 @@ public class Lava extends Power {
             activate(rats, currentTile);
         } else {
             currentTile.removeActivePower(this);
+            currentTile.addActivePower(new Rock(this.xPos,this.yPos));
         }
 
     }

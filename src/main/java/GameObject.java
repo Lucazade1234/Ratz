@@ -11,7 +11,7 @@ public abstract class GameObject {
     private static final int WIDTH = 64;
 
     private final Image img;
-    private final boolean isPassable;
+    private boolean isPassable;
 
     /**
      * Object constructor.
@@ -72,4 +72,13 @@ public abstract class GameObject {
     public boolean isPassable() {
         return isPassable;
     }
+
+    /**
+     * sets whether or not the tile is passable.
+     * @param passable whether or not the tile is passable.
+     */
+    public void setPassable(boolean passable) {
+        isPassable = passable;
+    }
+
 }

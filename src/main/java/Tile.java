@@ -69,6 +69,12 @@ public class Tile extends GameObject {
         int numOfPowers = activePowers.size();
         int numOfRats = occupantRats.size();
 
+        for (Power power: activePowers) {
+            if (power instanceof Rock ){
+                this.setPassable(false);
+            }
+        }
+
         for (int i = 0; i < numOfPowers; i++) {
             activePowers.get(i).onTick(occupantRats, this);
             if (activePowers.size() == numOfPowers) {
