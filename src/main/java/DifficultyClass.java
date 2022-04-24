@@ -9,6 +9,7 @@ public abstract class DifficultyClass {
     private int femaleSwapperCap;
     private int stopSignCap;
     private int deathRatCap;
+    private int lavaCap;
     private int[] dropRate;
     private int[] counters;
     private int time;
@@ -132,6 +133,14 @@ public abstract class DifficultyClass {
 
     public void setDeathRatCap(int deathRatCap) {
         this.deathRatCap = deathRatCap;
+    }
+
+    public int getLavaCap() {
+        return lavaCap;
+    }
+
+    public void setLavaCap(int lavaCap) {
+        this.lavaCap = lavaCap;
     }
 }
 
