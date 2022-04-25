@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../target/classes/menu.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="49.0" prefWidth="599.0">
+         <children>
+            <ImageView fitHeight="50.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@bomb0.png" />
+               </image>
+            </ImageView>
+            <TextArea editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="547.0" text="Bomb - Once deployed on the map will detonate in 5 seconds.  Once detonated will kill&#10;all rats in proximity.&#10;&#10;" />
+         </children>
+      </HBox>
+      <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="49.0" prefWidth="597.0">
+         <children>
+            <ImageView fitHeight="50.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@gas.png" />
+               </image>
+            </ImageView>
+            <TextArea editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="548.0" text="Gas - Once deployed on the map Gas will spread to neighbouring tiles, any rats that are&#10;inside the gas will be damaged over time and can be killed if in the gas for too long.&#10;&#10;" />
+         </children>
+      </HBox>
+      <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="49.0" prefWidth="599.0">
+         <children>
+            <ImageView fitHeight="50.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@lava.png" />
+               </image>
+            </ImageView>
+            <TextArea editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="548.0" text="Lava - Lava spreads onto neighbouring tiles, killing any rats that it touches, after an &#10;amount of time lava will cool into rock and block the tiles it occupies.&#10;&#10;&#10;" />
+         </children>
+      </HBox>
+      <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="49.0" prefWidth="599.0">
+         <children>
+            <ImageView fitHeight="50.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@maleswapper.png" />
+               </image>
+            </ImageView>
+            <TextArea editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="549.0" text="Male Swapper - When a rat comes into contact with this item it's gender will change to&#10;male.&#10;&#10;" />
+         </children>
+      </HBox>
+      <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="49.0" prefWidth="600.0">
+         <children>
+            <ImageView fitHeight="50.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@femaleswapper.png" />
+               </image>
+            </ImageView>
+            <TextArea editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="46.0" prefWidth="550.0" text="Female Swapper - When a rat comes into contact with this item it's gender will change &#10;to female.&#10;&#10;" />
+         </children>
+      </HBox>
+      <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="49.0" prefWidth="600.0">
+         <children>
+            <ImageView fitHeight="50.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@stopsign5.png" />
+               </image>
+            </ImageView>
+            <TextArea editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="550.0" text="Stop Sign - Blocks rats from moving past the tile it occupies, rats can damage and destroy&#10;stop signs.&#10;&#10;" />
+         </children>
+      </HBox>
+      <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="49.0" prefWidth="599.0">
+         <children>
+            <ImageView fitHeight="50.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@deathratNORTH.png" />
+               </image>
+            </ImageView>
+            <TextArea editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="549.0" text="Death Rat - Death rats are robotic rats that kill other rats. Once deployed they roam on their own&#10;searching for rats to kill. &#10;" />
+         </children>
+      </HBox>
+      <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" text="The aim of the game is to eliminate all rats from the map. You can do this buy using the selection of weapons&#10;available in your toolkit." />
+   </children>
+</VBox>

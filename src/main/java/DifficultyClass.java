@@ -1,3 +1,10 @@
+/**
+ * Abstract class to model all difficulties
+ * @author Luca Khatri
+ * @version 1.0
+ *
+ */
+
 public abstract class DifficultyClass {
 
     private int ratSpeed;
@@ -16,7 +23,16 @@ public abstract class DifficultyClass {
     private int frameTime;
 
 
-
+    /**
+     * difficulty constructor
+     * @param ratSpeed speed of the rat
+     * @param populationCap max population
+     * @param bombCap max amount of bombs
+     * @param gasCap max amount of gas
+     * @param poisonCap max amount of poison
+     * @param maleSwapperCap max amount of male swapper
+     * @param femaleSwapperCap max amount of female swapper
+     */
     DifficultyClass(int ratSpeed , int populationCap, int bombCap, int gasCap, int poisonCap, int maleSwapperCap, int femaleSwapperCap){
         this.ratSpeed = ratSpeed;
         this.populationCap = populationCap;

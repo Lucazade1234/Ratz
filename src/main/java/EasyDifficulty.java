@@ -5,7 +5,7 @@ public class EasyDifficulty extends DifficultyClass {
         this.setRatSpeed(4);
         this.setPopulationCap(30);
         this.setBombCap(3);
-        this.setGasCap(2);
+        this.setGasCap(1);
         this.setPoisonCap(3);
         this.setMaleSwapperCap(3);
         this.setFemaleSwapperCap(3);

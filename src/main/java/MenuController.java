@@ -1011,11 +1011,40 @@ public class MenuController {
 		return levelController;
 	}
 
+	/**
+	 * gets the difficulty status
+	 * @return the difficulty status
+	 */
 	public static int getStatus() {
 		return status;
 	}
 
+	/**
+	 * sets the difficulty status
+	 * @param status the difficulty status
+	 */
 	public static void setStatus(int status) {
 		MenuController.status = status;
+	}
+
+	/**
+	 * opens the handbook window
+	 * @throws IOException exception in case fxml not found
+	 */
+	public void openHandBook() throws IOException {
+
+		Pane root =  FXMLLoader.load(Objects.requireNonNull(getClass().getResource("info.fxml")));
+		Stage helpStage = new Stage();
+		Scene helpScene = new Scene(root, root.getPrefWidth(), root.getPrefHeight());
+
+
+
+		helpStage.setScene(helpScene);
+		helpStage.show();
+
+
+
+
+
 	}
 }

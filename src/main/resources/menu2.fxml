@@ -21,8 +21,8 @@
    <Button mnemonicParsing="false" onAction="#changeToLevelSelection" prefHeight="39.0" prefWidth="180.0" text="Select Level" />
    <Button mnemonicParsing="false" onAction="#changeToLevelCreation" prefHeight="39.0" prefWidth="180.0" text="Create Level" />
    <Button mnemonicParsing="false" onAction="#changeToSettings" prefHeight="39.0" prefWidth="180.0" text="Settings" />
+   <Button mnemonicParsing="false" onAction="#openHandBook" prefHeight="39.0" prefWidth="181.0" text="Handbook" />
    <Button mnemonicParsing="false" onAction="#exitTheGame" prefHeight="39.0" prefWidth="180.0" text="Exit" />
-   <Label id="labelMOTD" fx:id="messageOfTheDay" prefHeight="78.0" prefWidth="61.0" />
    <AnchorPane prefHeight="100.0" prefWidth="200.0">
       <ImageView fitHeight="127.0" fitWidth="266.0" layoutX="115.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
          <Image url="@adultmaleEAST.png" />
@@ -34,4 +34,5 @@
          <Image url="@adultmaleEAST.png" />
       </ImageView>
    </AnchorPane>
+   <Label id="labelMOTD" fx:id="messageOfTheDay" prefHeight="78.0" prefWidth="61.0" />
 </VBox>
