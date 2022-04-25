@@ -3,7 +3,7 @@ import java.util.ArrayList;
 /**
  * Class models the behaviour of the rock weapon
  * @author Luca Khatri
- * @
+ * @version 1.0
  */
 public class Rock extends Power {
 
