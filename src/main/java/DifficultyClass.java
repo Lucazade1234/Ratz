@@ -43,6 +43,9 @@ public abstract class DifficultyClass {
         this.femaleSwapperCap = femaleSwapperCap;
     }
 
+    /**
+     * difficulty constructor
+     */
     public DifficultyClass() {
 
     }

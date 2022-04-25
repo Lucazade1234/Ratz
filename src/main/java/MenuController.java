@@ -1027,6 +1027,7 @@ public class MenuController {
 		MenuController.status = status;
 	}
 
+
 	/**
 	 * opens the handbook window
 	 * @throws IOException exception in case fxml not found
@@ -1037,13 +1038,8 @@ public class MenuController {
 		Stage helpStage = new Stage();
 		Scene helpScene = new Scene(root, root.getPrefWidth(), root.getPrefHeight());
 
-
-
 		helpStage.setScene(helpScene);
 		helpStage.show();
-
-
-
 
 
 	}
