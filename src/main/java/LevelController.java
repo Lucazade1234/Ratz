@@ -36,7 +36,8 @@ import javax.imageio.ImageIO;
  * Class that implements a playable level.
  *
  * @author Vilija Pundyte
- * @version 1.0
+ * @author Luca Khatri
+ * @version 1.1
  */
 
 public class LevelController {

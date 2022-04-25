@@ -27,6 +27,8 @@ import javafx.stage.Stage;
  * Class to control main menu.
  * 
  * @author Tomasz Fijalkowski
+ * @author Luca Khatri
+ * @version 1.1
  *
  */
 public class MenuController {
@@ -231,21 +233,7 @@ public class MenuController {
 		System.out.println("mediumButton: " + mediumSelected);
 		System.out.println("hardButton: " + hardSelected);
 
-	/*	if (easySelected){
-			easyButton.setSelected(true);
-			mediumButton.setSelected(false);
-			hardButton.setSelected(false);
-		} else if (mediumSelected){
-			easyButton.setSelected(false);
-			mediumButton.setSelected(true);
-			hardButton.setSelected(false);
-		} else if (hardSelected){
-			easyButton.setSelected(false);
-			mediumButton.setSelected(false);
-			hardButton.setSelected(true);
-		}
 
-	 */
 
 		menuViewUpdated = false;
 		root = FXMLLoader.load(getClass().getResource("menu2.fxml"));
@@ -257,8 +245,6 @@ public class MenuController {
 
 
 
-
-		//System.out.println("status: " + status);
 	}
 
 	/**
@@ -682,26 +668,7 @@ public class MenuController {
 			LevelFileReader.loadSavedLevelFile("src/main/resources/levels/" + levelType + selectedLevelName);
 		}
 
-		/*if(easyButton.isSelected()){
-			this.setDifficulty(easy);
-		} else if(mediumButton.isSelected()){
-			this.setDifficulty(medium);
-		} else if(hardButton.isSelected()){
-			this.setDifficulty(hard);
-		}
 
-		 */
-
-
-/*		if(this.getDifficulty() instanceof MediumDifficulty){
-			System.out.println("the difficulty is easy");
-		} else if(this.getDifficulty() instanceof MediumDifficulty){
-			System.out.println("the difficulty is medium");
-		} else if(this.getDifficulty() instanceof HardDifficulty){
-			System.out.println("the difficulty is hard");
-		}
-
- */
 		System.out.println(status);
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("level.fxml"));
 
@@ -723,18 +690,6 @@ public class MenuController {
 		scene = new Scene(root, root.getPrefWidth(), root.getPrefHeight());
 		stage.setScene(scene);
 
-
-
-		/*FXMLLoader loader = new FXMLLoader(getClass().getResource("level.fxml"));
-		LevelController levelController = new LevelController(selectedLevelName, this, medium);
-
-		loader.setController(levelController);
-		Pane root = loader.load();
-
-		scene = new Scene(root, root.getPrefWidth(), root.getPrefHeight());
-		stage.setScene(scene);
-
-		 */
 
 
 	}

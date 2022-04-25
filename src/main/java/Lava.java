@@ -1,6 +1,11 @@
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * Class models the behaviour of lava weapon
+ * @author Luca Khatri
+ * @version 1.0.0
+ */
 public class Lava extends Power {
     private static final int TICKS_TO_SPAWN_NEW_LAVA = 4;
     private static final int LIFETIME = 24;
@@ -32,13 +37,18 @@ public class Lava extends Power {
         this.isOriginal = isOriginal;
     }
 
+    /**
+     * abstract method that tells every power to do their thing
+     * for lava - spawn new lava to surrounding tiles and kill rats
+     * in the same tile as them
+     * @param rats used to interact with all rats that stepped on the power.
+     * @param currentTile used for removing power from its Tile.
+     */
     @Override
     void activate(ArrayList<Rat> rats, Tile currentTile) {
         //Places a bunch of new Gas on Tiles with isOriginal = false;
         if (isOriginal) {
             if (ticksActive == 1 || ticksActive % TICKS_TO_SPAWN_NEW_LAVA == 0) {
-                SeaShantySimulator seaSim = new SeaShantySimulator();
-                //seaSim.playAudioClip(GAS_SOUND_PATH, GAS_SOUND_VOLUME);
                 lavaSurroundingPathTiles();
             }
         }
@@ -49,6 +59,14 @@ public class Lava extends Power {
         }
     }
 
+    /**
+     * Abstract method for certain powers that need to activate after a
+     * certain amount of time.
+     *
+     * for lava - removes lava after lifecycle and spawns rock
+     * @param rats used for updating the rat arraylist every game tick.
+     * @param currentTile used for calling removeActivePower(this).
+     */
     @Override
     void onTick(ArrayList<Rat> rats, Tile currentTile) {
         ticksActive++;
@@ -62,11 +80,18 @@ public class Lava extends Power {
     }
 
 
+    /**
+     * method spawns new lava to surrounding tiles
+     */
     private void lavaSurroundingPathTiles() {
         getSurroundingNonDiagonals();
         getSurroundDiagonals();
     }
 
+    /**
+     * method spawns new lava in neighbouring tiles
+     * Does this for North, South, east and West
+     */
     private void getSurroundingNonDiagonals() {
         // North
         if (LevelController.getTileAt(this.xPos, this.yPos + lavaCounterN)
@@ -115,6 +140,11 @@ public class Lava extends Power {
         }
     }
 
+
+    /**
+     * Method spawns new lava in neighbouring tiles
+     * Does this for North-East, South-East, South-West and North-West
+     */
     private void getSurroundDiagonals() {
         // North East
         if (LevelController.getTileAt(this.xPos+lavaCounterNE,
@@ -169,91 +199,33 @@ public class Lava extends Power {
         }
     }
 
-    public static int getTicksToSpawnNewLava() {
-        return TICKS_TO_SPAWN_NEW_LAVA;
-    }
 
-    public static int getLIFETIME() {
-        return LIFETIME;
-    }
-
+    /**
+     * Gets how many ticks since the creation of the class
+     *
+     * @return current value of ticksActive
+     */
     public int getTicksActive() {
         return ticksActive;
     }
 
+    /**
+     * Sets the value of ticksActive
+     *
+     * @param ticksActive the new value of ticksActive
+     */
     public void setTicksActive(int ticksActive) {
         this.ticksActive = ticksActive;
     }
 
+    /**
+     * Gets if the lava is the original lava the player placed
+     *
+     * @return current value of isOriginal
+     */
     public boolean isOriginal() {
         return isOriginal;
     }
 
-    public void setOriginal(boolean original) {
-        isOriginal = original;
-    }
 
-    public int getLavaCounterN() {
-        return lavaCounterN;
-    }
-
-    public void setLavaCounterN(int lavaCounterN) {
-        this.lavaCounterN = lavaCounterN;
-    }
-
-    public int getLavaCounterS() {
-        return lavaCounterS;
-    }
-
-    public void setLavaCounterS(int lavaCounterS) {
-        this.lavaCounterS = lavaCounterS;
-    }
-
-    public int getLavaCounterE() {
-        return lavaCounterE;
-    }
-
-    public void setLavaCounterE(int lavaCounterE) {
-        this.lavaCounterE = lavaCounterE;
-    }
-
-    public int getLavaCounterW() {
-        return lavaCounterW;
-    }
-
-    public void setLavaCounterW(int lavaCounterW) {
-        this.lavaCounterW = lavaCounterW;
-    }
-
-    public int getLavaCounterNW() {
-        return lavaCounterNW;
-    }
-
-    public void setLavaCounterNW(int lavaCounterNW) {
-        this.lavaCounterNW = lavaCounterNW;
-    }
-
-    public int getLavaCounterSW() {
-        return lavaCounterSW;
-    }
-
-    public void setLavaCounterSW(int lavaCounterSW) {
-        this.lavaCounterSW = lavaCounterSW;
-    }
-
-    public int getLavaCounterNE() {
-        return lavaCounterNE;
-    }
-
-    public void setLavaCounterNE(int lavaCounterNE) {
-        this.lavaCounterNE = lavaCounterNE;
-    }
-
-    public int getLavaCounterSE() {
-        return lavaCounterSE;
-    }
-
-    public void setLavaCounterSE(int lavaCounterSE) {
-        this.lavaCounterSE = lavaCounterSE;
-    }
 }
