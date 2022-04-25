@@ -13,7 +13,7 @@ public class EasyDifficulty extends DifficultyClass {
         this.setDeathRatCap(3);
         this.setLavaCap(1);
         this.setTime(120);
-        this.setFrameTime(250);
+        this.setFrameTime(150);
         int[] dropRates = {5000,10000,10000,5000,5000,5000,5000,5000};
         this.setDropRate(dropRates);
         int[] counters = {this.getBombCap(),this.getGasCap(),this.getLavaCap(),
