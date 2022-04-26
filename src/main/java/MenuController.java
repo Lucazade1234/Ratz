@@ -351,7 +351,7 @@ public class MenuController {
 		stage.show();
 	}
 
-	// profiles code
+
 
 	/**
 	 * Adds profile to database and the screen.
@@ -463,7 +463,7 @@ public class MenuController {
 		}
 	}
 
-	////////////////////////////////////////////////////////////////////// levels
+
 
 	/**
 	 * Change background image of radio buttons. First argument will have selected
@@ -605,8 +605,8 @@ public class MenuController {
 		return img;
 	}
 
-	/*
-	 * Deletes selected saved game and connected screenshot.
+	/**
+	 * deletes the a saved game
 	 */
 	public void deleteSavedGame() {
 		File fileToDelete = new File(RESOURCES_PATH + "levels/saved_games/" + ProfileFileReader.getLoggedProfile() + "/"
@@ -711,7 +711,7 @@ public class MenuController {
 		stage.show();
 	}
 
-	// level creation code
+
 
 	/**
 	 * Updates buttons and score table in level creation menu.
@@ -883,19 +883,7 @@ public class MenuController {
 	 * sets the difficulty to easy
 	 */
 	public void setToEasy(ActionEvent actionEvent){
-		//easySelected = true;
-		//mediumSelected = false;
-		//hardSelected = false;
-
-		//System.out.println("easy button selected: " + easyButton.isSelected());
-
-
-		//System.out.println(this.getDifficulty().getPopulationCap());
-
-		//settings.setToEasy();
 		System.out.println("changed to easy");
-
-
 	}
 
 
@@ -903,16 +891,6 @@ public class MenuController {
 	 * sets the difficulty to medium
 	 */
 	public void setToMedium(ActionEvent actionEvent){
-		//easySelected = false;
-		//mediumSelected = true;
-		//hardSelected = false;
-
-
-
-		//System.out.println("medium button selected: " + mediumButton.isSelected());
-		//System.out.println(this.getDifficulty().getPopulationCap());
-
-		//this.settings.setToMedium();
 		System.out.println("changed to medium");
 	}
 
@@ -920,21 +898,13 @@ public class MenuController {
 	 * sets the difficulty to hard
 	 */
 	public void setToHard(ActionEvent actionEvent){
-		//easySelected = false;
-		//mediumSelected = false;
-		//hardSelected = true;
-
-		//System.out.println("hard button selected: " + hardButton.isSelected());
-
-		//System.out.println(this.getDifficulty().getPopulationCap());
-
-		//settings.setToHard();
 		System.out.println("changed to hard");
-
-		//status = 2;
-		//System.out.println("changed to hard");
 	}
 
+	/**
+	 * Changes the difficulty status
+	 * @param event action event
+	 */
 	public void saveSettings(ActionEvent event){
 
 		if (easyButton.isSelected()) {
