@@ -22,7 +22,7 @@ public class MediumDifficulty extends DifficultyClass {
         this.setLavaCap(1);
         this.setTime(90);
         this.setFrameTime(100);
-        int[] dropRates = {5000,10000,10000,5000,5000,5000,5000,5000};
+        int[] dropRates = {5000,60000,60000,5000,5000,5000,5000,5000};
         this.setDropRate(dropRates);
         int[] counters = {this.getBombCap(),this.getGasCap(),this.getLavaCap(),
                 this.getPoisonCap(),getMaleSwapperCap(),getFemaleSwapperCap(),getStopSignCap(),getDeathRatCap()};

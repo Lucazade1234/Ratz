@@ -72,8 +72,8 @@ public class LevelController {
     // Images for different game items
     private final List<Image> itemImages = Arrays.asList((new Bomb(0, 0)).getImg(), (new Gas(0, 0, true)).getImg(),
             (new Lava(0,0,true)).getImg(), (new Poison(0, 0)).getImg(), (new MaleSwapper(0, 0)).getImg(),
-            (new FemaleSwapper(0, 0)).getImg(), (new StopSign(0, 0)).getImg(),
-            (new DeathRat(0, Rat.Direction.WEST, 0, 0, 0, 0)).getImg());
+                    (new FemaleSwapper(0, 0)).getImg(), (new StopSign(0, 0)).getImg(),
+                    (new DeathRat(0, Rat.Direction.WEST, 0, 0, 0, 0)).getImg());
 
     // Size of game map
     private final int WIDTH;
